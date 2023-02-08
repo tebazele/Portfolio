@@ -65,6 +65,12 @@ h6 {
   opacity: 1;
 }
 
+.head-shot {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -687,14 +693,29 @@ section {
   padding: 30px;
   position: relative;
   overflow: hidden;
-  background: #fff;
+  background-image: url("../img/portfolio/capstone-img.jpg");
+  height: 300px;
+  width: 100%;
+  background-repeat: none;
+  background-position: center;
+  background-size: contain;
   box-shadow: 0 0 29px 0 rgba(68, 88, 144, 0.12);
   transition: all 0.3s ease-in-out;
   border-radius: 8px;
   z-index: 1;
 }
 
-.services .icon-box::before {
+.pos-abs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+
+/* .services .icon-box::before {
   content: "";
   position: absolute;
   background: #aff4e9;
@@ -714,7 +735,7 @@ section {
   width: 100%;
   height: 100%;
   border-radius: 0px;
-}
+} */
 
 .services .icon {
   margin: 0 auto 20px auto;
