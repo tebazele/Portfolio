@@ -695,10 +695,25 @@ section {
   overflow: hidden;
   background-image: url("../img/portfolio/capstone-img.jpg");
   height: 300px;
-  width: 100%;
+  width: 500px;
   background-repeat: none;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
+  box-shadow: 0 0 29px 0 rgba(68, 88, 144, 0.12);
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  z-index: 1;
+}
+.services .icon-box-2 {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../img/reactTower.png");
+  height: 300px;
+  width: 500px;
+  background-repeat: none;
+  background-position: center;
+  background-size: cover;
   box-shadow: 0 0 29px 0 rgba(68, 88, 144, 0.12);
   transition: all 0.3s ease-in-out;
   border-radius: 8px;
