@@ -693,6 +693,30 @@ section {
   color: #a7bbb8;
 }
 
+.lang-icon {
+  filter: brightness(.2) invert(1);
+  width: 80px;
+  height: 80px;
+}
+
+.lang-icon-2 {
+  filter: brightness(.5) invert(.9);
+    width: 80px;
+    height: 80px;
+}
+
+.lang-icon:hover {
+  filter: brightness(1);
+  width:80px;
+  height:80px;
+}
+
+.lang-icon-2:hover {
+  filter: brightness(1);
+  width: 80px;
+  height: 80px;
+}
+
 /*--------------------------------------------------------------
 # Our Services
 --------------------------------------------------------------*/
@@ -702,7 +726,7 @@ section {
   overflow: hidden;
   background-image: url("../img/portfolio/capstone-img.jpg");
   height: 300px;
-  width: 500px;
+  /* width: 100%; */
   background-repeat: none;
   background-position: center;
   background-size: cover;
@@ -717,7 +741,7 @@ section {
   overflow: hidden;
   background-image: url("../img/reactTower.png");
   height: 300px;
-  width: 500px;
+  /* width: 100%; */
   background-repeat: none;
   background-position: center;
   background-size: cover;
@@ -733,7 +757,7 @@ section {
   overflow: hidden;
   background-image: url("../img/pinterest-clone.png");
   height: 300px;
-  width: 500px;
+  /* width: 120%; */
   background-repeat: none;
   background-position: center;
   background-size: cover;
@@ -742,6 +766,8 @@ section {
   border-radius: 8px;
   z-index: 1;
 }
+
+
 
 .services .icon-box:hover {
   transform: scale(1.05);
