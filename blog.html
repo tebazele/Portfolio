@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Jeanne Allen Blog</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: Shuffle - v4.10.0
+  * Template URL: https://bootstrapmade.com/bootstrap-3-one-page-template-free-shuffle/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  </head>
+
+  <body class="bg-secondary">
+    <!-- ======= Header ======= -->
+    <header class="container-fluid">
+      <section class="row p-0">
+        <div class="blog-header col-12"></div>
+      </section>
+    </header>
+    <!-- End Header -->
+
+    <main id="main">
+      <div class="container">
+        <section class="row">
+          <div class="col-3">
+            <div class="m-2 p-3 bg-light">
+              <h2>Posts</h2>
+              <ul>
+                <li>
+                  <a
+                    class="scrollto"
+                    href="#setting-up-a-sqlite3-database-within-flask-two-ways"
+                    >Sqlite3 Database with Flask - Two ways</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-9">
+            <div class="m-2 p-3 bg-light">
+              <h2>Blogs</h2>
+              <div class="">
+                <h1 id="setting-up-a-sqlite3-database-within-flask-two-ways">
+                  Setting up a Sqlite3 Database within Flask - Two ways
+                </h1>
+                <p>
+                  Python was the first language I learned through Codecademy. It
+                  seemed approachable as well as incredibly powerful, so after
+                  my coding bootcamp at CodeWorks, I decided to come back to it
+                  and see if I could write a Python server as the backend to one
+                  of my Vue projects using Flask.
+                </p>
+                <h2 id="setting-up-a-virtual-environment">
+                  Setting up a virtual environment
+                </h2>
+                <p>
+                  Up at the top of the stack in the web development world, it
+                  feels like you can&#39;t write a line of code without
+                  installing a bunch of packages. I&#39;m pretty familiar at
+                  this point with Node and Node Package Manager and how Node
+                  Version Manager can help manage all the different versions
+                  from Node updating constantly.
+                </p>
+                <p class="d-inline-flex gap-1">
+                  <a
+                    class="btn btn-info"
+                    data-bs-toggle="collapse"
+                    href="#collapseExample"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="collapseExample"
+                  >
+                    Read More
+                  </a>
+                </p>
+                <div class="collapse" id="collapseExample">
+                  <div>
+                    <p>
+                      A Python virtual environment is kind of similar--the
+                      libraries of all the dependencies are constantly updating,
+                      so you kind of want to lock in whatever version you&#39;re
+                      using locally and tie it to the project. That&#39;s the
+                      job of the venv, to create a space to
+                      <code>pip install flask</code> so your project doesn&#39;t
+                      break as soon as Flask gets an update.
+                    </p>
+                    <p>
+                      Once I&#39;d created the venv and pip installed flask, I
+                      was ready to dive into the project.
+                    </p>
+                    <h2 id="setting-up-a-sqlite-database">
+                      Setting up a sqlite database
+                    </h2>
+                    <p>
+                      Flask comes with sqlite3, so that seemed like the easiest
+                      thing to start playing around with. It&#39;s pretty
+                      straightforward in a lot of ways. Sql commands are very
+                      much plain English in a lot of ways, which is nice, and so
+                      are the python commands used to access the database:
+                      connect, execute, commit, close.
+                    </p>
+                    <p>
+                      The first thing I did was get a VS code extension to view
+                      .sqlite files. I figured having access to my data within
+                      my project would be useful (it has been).
+                    </p>
+                    <p>
+                      I only wanted to create the sqlite database file once when
+                      I started my project, and there are a couple of ways to
+                      accomplish this. I read over a few tutorials and decided
+                      to write a function called <code>connect()</code> that I
+                      would only call in app.py (the file that initializes the
+                      flask project) if there was no file called
+                      <em>db.sqlite</em>.
+                    </p>
+                    <pre><code class="lang-python">from flask <span class="hljs-keyword">import</span> Flask
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> db
+
+app = Flask(__name__)
+
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">not</span> os.<span class="hljs-built_in">path</span>.isfile(<span class="hljs-string">'db.sqlite'</span>):
+  db.connect()
+</code></pre>
+                    <p>The db.py file contained the connect function:</p>
+                    <pre><code class="lang-python">import sqlite3
+
+def connect():
+  conn = sqlite3.connect('db.sqlite')
+  cur = conn.cursor()
+
+  cur.execute(
+    "<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> <span class="hljs-keyword">users</span> (<span class="hljs-keyword">id</span> <span class="hljs-built_in">INTEGER</span> PRIMARY <span class="hljs-keyword">KEY</span> AUTO_INCREMENT, <span class="hljs-keyword">name</span> <span class="hljs-built_in">TEXT</span>, email <span class="hljs-built_in">TEXT</span>)<span class="hljs-string">"
+  )
+  conn.commit()
+  conn.close()</span>
+</code></pre>
+                    <h2 id="sqlalchemy">SQLAlchemy</h2>
+                    <p>
+                      After successfully creating a database with a users table,
+                      I found a tutorial that used yet another library to make
+                      things
+                      <em>event easier</em>, so of course, I had to try it out.
+                    </p>
+                    <p>
+                      I imported SQLAlchemy from flask_sqlalchemy and created a
+                      db_creation.py file. SQLAlchemy wants to be used within a
+                      flask context, so I also imported Flask into this file as
+                      well.
+                    </p>
+                    <pre><code class="lang-python"><span class="hljs-keyword">app</span> = Flask(__name__)
+
+<span class="hljs-keyword">app</span>.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:<span class="hljs-comment">///instance/db.sqlite'</span>
+<span class="hljs-keyword">db</span> = SQLAlchemy(<span class="hljs-keyword">app</span>)
+
+<span class="hljs-keyword">app</span>.app_context().push()
+</code></pre>
+                    <p>
+                      I&#39;m not entirely sure what the last line there is
+                      doing, but it seems that when you init a flask app these
+                      days, Flask creates a folder called &quot;instance&quot;
+                      that holds stuff like databases that you only create once
+                      at the beginning of the project, and that last line helps
+                      the app find the database within the instance folder
+                      whenever it goes looking for it.
+                    </p>
+                    <h3
+                      id="in-the-next-blog-post-i-ll-talk-about-routes-i-wrote-using-flask-to-access-my-database"
+                    >
+                      In the next blog post, I&#39;ll talk about routes I wrote
+                      using Flask to access my database
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ======= Breadcrumbs Section ======= -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <!-- <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 footer-info">
+              <h3>Jeanne Allen</h3>
+              <p>
+                <strong>Github:</strong>github link<br />
+                <strong>linkedin:</strong> linked in link<br />
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"
+                  ><i class="bx bxl-instagram"></i
+                ></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">About us</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Services</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Terms of service</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Privacy policy</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Web Design</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Web Development</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Product Management</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Marketing</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Graphic Design</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-6 footer-newsletter">
+              <h4>Our Newsletter</h4>
+              <p>
+                Tamen quem nulla quae legam multos aute sint culpa legam noster
+                magna
+              </p>
+              <form action="" method="post">
+                <input type="email" name="email" /><input
+                  type="submit"
+                  value="Subscribe"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Shuffle</span></strong
+          >. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bootstrap-3-one-page-template-free-shuffle/ -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      <!-- </div>
+      </div> -->
+      -->
+    </footer>
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
