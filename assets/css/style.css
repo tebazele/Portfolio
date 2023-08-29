@@ -767,6 +767,22 @@ section {
   z-index: 1;
 }
 
+.services .icon-box-4 {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../img/craftranker.png");
+  height: 300px;
+  /* width: 120%; */
+  background-repeat: none;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 5px 5px 29px 0 rgba(1, 6, 20, 0.7);
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  z-index: 1;
+}
+
 
 
 .services .icon-box:hover {
