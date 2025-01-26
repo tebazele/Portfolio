@@ -725,7 +725,7 @@ section {
   position: relative;
   overflow: hidden;
   background-image: url("../img/portfolio/capstone-img.jpg");
-  height: 300px;
+  height: 420px;
   /* width: 100%; */
   background-repeat: none;
   background-position: center;
@@ -772,7 +772,7 @@ section {
   position: relative;
   overflow: hidden;
   background-image: url("../img/craftranker.png");
-  height: 300px;
+  height: 420px;
   /* width: 120%; */
   background-repeat: none;
   background-position: center;
@@ -1679,4 +1679,29 @@ section {
   background-position: center;
   background-repeat: no-repeat;
   min-height: 300px;
+}
+
+.lang {
+  color: antiquewhite;
+  font-size: 72px;
+}
+
+.lang:hover{
+  color:#1bbca3;
+}
+
+.lot-of-text {
+  text-align: left;
+}
+
+.subtext {
+  color: darkgray;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.subsubtext {
+  color: black;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
