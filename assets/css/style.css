@@ -1705,3 +1705,13 @@ section {
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+.img-case-study {
+  height: 285px;
+  padding-bottom: 20px;
+  
+}
+
+.a-b-img {
+  height: 220px;
+}
