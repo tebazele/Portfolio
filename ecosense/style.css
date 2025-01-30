@@ -1,0 +1,106 @@
+* {
+    scroll-behavior: smooth;
+}
+
+h4 a {
+    text-decoration: none;
+    color: black;
+}
+
+h4 a:hover {
+    color: rgb(10, 149, 66);
+}
+
+.bg-image {
+    background-image: url(https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+    min-height: 50vh;
+    max-height: 70vh;
+    background-size: cover;
+    background-position: left 200px bottom -165px;
+    
+}
+
+.med-pic {
+    height: 55vh;
+    object-fit: cover;
+    min-width: 30vh;
+    object-position: right 0px bottom 0px;
+}
+
+.font-lato {
+    font-family: 'Lato', sans-serif;
+}
+
+.lato-bold {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px black;
+    letter-spacing: .2rem;
+}
+
+.text-shadow-light {
+    text-shadow: 1px 1px 2px rgb(83, 81, 81);
+    letter-spacing: 2px;
+}
+
+.move-down {
+    transform: translateY(7vh);
+}
+
+
+.card-shadow {
+    box-shadow: 0px 0px 20px rgb(125, 126, 125);
+}
+
+#middle-card {
+    border: solid 3px rgb(2, 157, 2);
+}
+
+.text-xl {
+    font-size: 56px;
+}
+
+.generic-box-shadow {
+    box-shadow: 0px 0px 15px rgb(113, 110, 110);
+}
+
+.bg-elephant {
+    background-color: rgb(202, 199, 199);
+}
+
+.badge img {
+    transition: all .2s ease;
+}
+
+.badge img:hover {
+    transform: translate(0px, -10px);
+}
+
+#hero-text {
+    display: block;
+}
+
+@media (max-width:992px) {
+    #hero-text {
+        display: none;
+    }
+
+    .bg-image {
+        background-image: url(https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .badge img {
+        transition: all .2s ease;
+        width: 120px;
+    }
+
+    .badge img:hover {
+        transform: translate(0px, -10px);
+    }
+
+}

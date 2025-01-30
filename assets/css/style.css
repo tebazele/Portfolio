@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #334240;
+  color: #412420;
 }
 
 a {
@@ -75,7 +75,7 @@ h6 {
   display: grid;
   row-gap: 12px;
   column-gap: 12px;
-  grid-template-columns: auto auto auto
+  grid-template-columns: auto auto auto auto auto auto
 }
 
 /*--------------------------------------------------------------
@@ -111,10 +111,6 @@ h6 {
   max-height: 40px;
 }
 
-.scrolled-offset {
-  margin-top: 70px;
-}
-
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -123,6 +119,7 @@ h6 {
 */
 .navbar {
   padding: 0;
+  z-index: 998;
 }
 
 .navbar ul {
@@ -505,6 +502,35 @@ h6 {
     width: 5%;
   }
 }
+/*--------------------------------------------------------------
+# Hero New Section
+--------------------------------------------------------------*/
+#hero-new {
+  width: 100%;
+  height: 100vh;
+  background-color: #330f0a;
+  overflow: hidden;
+  padding: 0;
+}
+
+
+
+@media (max-width: 768px) {
+  #hero-new h2 {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #hero-new p {
+    width: 60%;
+  }
+
+  #hero-new .carousel-control-prev,
+  #hero-new .carousel-control-next {
+    width: 5%;
+  }
+}
 
 /*--------------------------------------------------------------
 # Sections General
@@ -513,8 +539,42 @@ section {
   padding: 60px 0;
 }
 
+.bg-background {
+  background-color: #f7eedc;
+}
+
 .section-bg {
-  background-color: #f2f5f4;
+  background-color: #f5f4f4;
+}
+
+.bg-blue {
+  background-color: #2364aa;
+  opacity: .75;
+}
+
+.bg-blue-light {
+  background-color: #2364aa;
+  opacity: .5;
+}
+
+.bg-red {
+  background-color: #fe6661;
+  opacity: .90;
+}
+
+.bg-yellow {
+  background-color: #ffa630;
+  opacity: .65;
+}
+
+.bg-gray {
+  background-color: #a09891;
+  opacity: .5;
+}
+
+.bg-brown {
+  background-color: #412420;
+  opacity: .9;
 }
 
 .section-title {
@@ -535,6 +595,86 @@ section {
   margin-bottom: 0;
   color: #5f7c78;
 }
+/*--------------------------------------------------------------
+# Shapes
+--------------------------------------------------------------*/
+#geo-design {
+  height: 80vh;
+  width:100vw;
+  z-index: 0;
+}
+
+#circle {
+  width: 33vw;
+  height: 33vw;
+  border-radius: 50%;
+  margin: 20px;
+  position: absolute;
+  z-index: 1;
+}
+
+#sunbeam {
+  width: 0;
+  height: 15vh;
+  position: absolute;
+  left: -120px;
+  margin-top: 3vh;
+  transform: rotate(-7deg);
+  border-left:150vw solid #f0544f;
+  opacity: .85;
+  border-bottom: 50px solid transparent;
+  border-top: 50px solid transparent;
+  z-index: 1;
+}
+
+/* #half-circle {
+  position: absolute;
+  right:-30px;
+  height: calc(7vw + 7vh);
+  width: calc(14vw + 14vh);
+  top:calc(190px - 2vh);
+  border-top-right-radius: calc(14vw + 14vh);
+  border-top-left-radius: calc(14vw + 14vh);
+  transform: rotate(40deg);
+  z-index: 1;
+} */
+
+#rectangle {
+  position: absolute;
+  right: -2vw;
+  height: 50px;
+  width: 80vw;
+  top: 53vh;
+  transform: rotate(11deg);
+  z-index: 1;
+}
+
+#line {
+  position: relative;
+  /* right: -2vw; */
+  height: 1vh;
+  width: 80.75vw;
+  top: 65px;
+  /* transform: rotate(11deg);  */
+  z-index: 1;
+}
+
+#geo-design .text {
+  color: #412420;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-left: 20px;
+  padding-top:20px;
+  margin: 0px;
+}
+
+#geo-design .subtext {
+  color: #412420;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-left: 20px;
+  margin: 0px;
+  text-align: left;
+}
+
 
 /*--------------------------------------------------------------
 # Breadcrumbs
@@ -587,6 +727,10 @@ section {
 /*--------------------------------------------------------------
 # About Us
 --------------------------------------------------------------*/
+.about p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .about .content h3 {
   font-weight: 500;
   font-size: 24px;
@@ -695,8 +839,8 @@ section {
 
 .lang-icon {
   filter: brightness(.2) invert(1);
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
 }
 
 .lang-icon-2 {
@@ -800,10 +944,10 @@ section {
 .pos-abs {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 80%;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 0;
 }
 
 
@@ -1711,7 +1855,16 @@ section {
   padding-bottom: 20px;
   
 }
+.img-case-study2 {
+  height: 420px;
+  padding-bottom: 20px;
+  
+}
 
 .a-b-img {
   height: 220px;
+}
+
+.arrow {
+  font-size: 96px;
 }
